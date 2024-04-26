@@ -1,0 +1,427 @@
+* {
+    /* outline: 1px solid red; */
+}
+
+@font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fuentes/Nunito/Nunito-VariableFont_wght.ttf"); /* Ruta relativa al archivo de fuente */
+}
+
+/* estilo del cuerpo de la pagina*/
+
+body{
+    /* background: linear-gradient(190deg, rgba(7, 11, 52, 1) 0%, rgba(20, 24, 82, 1) 35%, rgba(43, 47, 119, 1) 61%, rgba(72, 52, 117, 1) 73%, rgba(107, 73, 132, 1) 87%, rgba(133, 89, 136, 1) 100%);  */
+    background: #0f8a9d;
+    /* background: linear-gradient(57deg, #00C6A7 0%, #1E4D92 100%); */
+    background: linear-gradient(180deg,#39557e 0%, #7bafa7 100%);
+    /* background: #e55d87;
+    background: -webkit-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
+    background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%); */
+    font-family: 'Nunito', sans-serif;
+}
+
+#container {
+    margin: 0 auto;
+    width: 65vw;
+}
+
+/* estilo del logo */
+#cabecera {
+    background-color: #f0f8ff;
+    border-radius: 3px;
+    padding: 20px 10px 29px 29px;
+    margin-bottom: 10px;
+    height: 153px; 
+    background-image: url("/imagenes/overlay.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 737px;
+}
+
+img.logo{
+    max-width: 153px;
+    float: left;
+}
+
+#cabecera h3{
+    position: relative;
+    top: 9px;
+    left: 19px;
+    font-style: italic;
+    font-size: 21px;
+}
+
+
+#cabecera a{
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 34px;
+    text-decoration: none;
+    text-align: left;
+    position: relative;
+    top: 13px; /* Ajusta el valor según sea necesario */
+    left: 19px;
+    /* otros estilos */
+}
+
+
+    #cabecera #derecha {
+        position: absolute;
+        top: 29px;
+        left: 792px;
+    }
+
+    #derecha p.primero{
+        position: absolute;
+        top: 41px;
+        right: -94px;
+    margin-top: 0px;
+
+    }
+
+    #derecha h4.primero{
+        position: absolute;
+        top: -6px;
+    right: -139px;
+        margin-bottom: 0px;
+    }
+
+    #derecha p.segundo{
+        position: absolute;
+        top: 129px;
+    right: -100px;
+    margin-top: 0px;
+    }
+
+    #derecha h4.segundo{
+        position: absolute;
+        top: 83px;
+    right: -72px;
+        margin-bottom: 0px;
+    }
+
+img.sub {
+    width: 11em;
+    position: relative;
+    top: 33px;
+    left: -170px;
+}
+
+#menu ul,
+ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.clear {
+    clear: both;
+}
+
+/* estilo de navegacion */
+#menu {
+    background-color: #078D95; 
+    padding: 20px 94px 18px 33px;
+    text-align: center;
+    border: 1px solid #F1ECFF;
+    box-shadow: 0px 0px 5px #F1ECFF;
+    border-radius: 3px;
+    /* height: 26px; */
+}
+
+hr.otroTitulo{
+    border: 1px solid #464a50;
+    width: 144px;
+    float: left;
+    opacity: 0.5;
+}
+
+
+hr.titulo{
+    border: 1px solid #464a50;
+    width: 493px;
+    opacity: 0.5;
+}
+
+
+
+#menu ul#menu_principal li {
+    display: inline;
+    /* float: left; */
+    padding-left: 50px;
+}
+
+#menu_principal li a {
+    color: #D9F4F2;
+    text-decoration: none;
+    font-weight: bolder;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+#menu_principal li a:hover {
+    color: #1a1324;
+    text-decoration: underline;
+}
+
+/* fin menu */
+#principal {
+    width: 100%;
+    height: 90em;
+    margin-bottom: 22px;
+}
+
+#izquierda{
+    height: 100%;
+}
+
+#izquierda,
+#listadoProfesionales {
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 10px; /* Agrega un pequeño espacio inferior para separar las celdas */
+}
+
+/* estilo para principal*/
+#principal #izquierda {
+    background-color: #f0f8ff;
+    border-radius: 3px;
+    /* float: left; */
+    width: 72%;
+    margin-right: 3px; 
+    padding: 36px;
+    background-image: url("/imagenes/overlay2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom; 
+}
+
+#principal #izquierda #carrusel{
+    text-align: center;
+}
+
+#principal #izquierda #carrusel img{
+    width: 305px;
+    border-radius: 10px;
+    height: 321px;
+}
+
+
+#principal #izquierda #carrusel button{
+    border: none;
+    border-radius: 50%;
+    background-color: #1a1324;
+    width: 75px;
+    color: white;
+    font-size: 49px;
+    padding: 10px 7px 10px 10px;
+    position: absolute;
+    transform: translateY(167%) translateX(-419px);
+
+
+}
+
+
+#principal #izquierda #carrusel button:first-child {
+    left: 10px;
+}
+
+#principal #izquierda #carrusel button:last-child {
+    right: 98px;
+}
+
+#principal #izquierda h1.titulo {
+    text-align: center;
+    color: #333;
+    margin-top: 37px;
+}
+
+div.eslogan {
+    background-size: contain;
+    background-position: top left;
+    background-blend-mode: multiply;
+    background-image: url(https://redporlainfancia.org/wp-content/uploads/2021/03/Quotation-marks-2.png);
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    border-radius: 38px;
+    border-width: 20px;
+    border: 10px solid #65d1b0;
+    box-shadow: 0px 34px 33px -30px rgba(0,0,0,0.22);
+    color: rgba(42, 153, 153, 0.7);
+    height: 208px;
+    width: 335px;
+    position: absolute;
+    right: 497px;
+    top: 451px;
+}
+
+div.eslogan2 {
+    background-size: contain;
+    background-position: top left;
+    background-blend-mode: multiply;
+    background-image: url(https://redporlainfancia.org/wp-content/uploads/2021/03/Quotation-marks-2.png);
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    border-radius: 38px;
+    border-width: 20px;
+    border: 10px solid #65d1b0;
+    box-shadow: 0px 34px 33px -30px rgba(0,0,0,0.22);
+    color: rgba(42, 153, 153, 0.7);
+    height:  233px;
+    width: 335px;
+    position: absolute;
+    right: 497px;
+    top: 705px;
+}
+
+div.eslogan3 {
+    background-size: contain;
+    background-position: top left;
+    background-blend-mode: multiply;
+    background-image: url(https://redporlainfancia.org/wp-content/uploads/2021/03/Quotation-marks-2.png);
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    border-radius: 38px;
+    border-width: 20px;
+    border: 10px solid #65d1b0;
+    box-shadow: 0px 34px 33px -30px rgba(0,0,0,0.22);
+    color: rgba(42, 153, 153, 0.7);
+    height: 208px;
+    width: 335px;
+    position: absolute;
+    right: 497px;
+    top: 979px;
+}
+
+div.eslogan4 {
+    background-size: contain;
+    background-position: top left;
+    background-blend-mode: multiply;
+    background-image: url(https://redporlainfancia.org/wp-content/uploads/2021/03/Quotation-marks-2.png);
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    border-radius: 38px;
+    border-width: 20px;
+    border: 10px solid #65d1b0;
+    box-shadow: 0px 34px 33px -30px rgba(0,0,0,0.22);
+    color: rgba(42, 153, 153, 0.7);
+    height: 208px;
+    width: 335px;
+    position: absolute;
+    right: 497px;
+    top: 1230px;
+}
+
+
+div.eslogan h2{
+    padding: 3px;
+    margin: 12px;
+    text-align: left;
+}
+
+
+
+#principal #izquierda p.descripcion {
+    text-align: justify;
+    color: #555;
+    line-height: 30px; /* Agrega espacio de 10px después de cada párrafo */
+    margin-top: 35px;
+}
+
+img.imagen {
+    width: 47px;
+    margin-top: 13px;
+}
+
+
+/* estilo para principal del listado de profesionales*/
+#principal #listadoProfesionales {
+    background-color: #f0f8ff;
+    border-radius: 3px;
+    /* float: right; */
+    width: 27%;
+    padding: 20px 14px 16px 18px;
+    height: 100%;
+}
+
+/* estilo para la lista de profesionales ul li */
+#listadoProfesionales {
+    font-weight: bolder;
+}
+
+/* estilo para el titulo de la lista */
+#listadoProfesionales a.tituloPro {
+    color: #333;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+#listadoProfesionales a.tituloPro:hover {
+    color: #1a1324;
+    text-decoration: underline;
+}
+
+#listadoProfesionales h4{
+    color: #333;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bolder;
+    margin-bottom: 0px;
+    margin-top: 31px;
+}
+
+#listadoProfesionales li.profesional {
+    color: #555;
+    margin-top: 26px;
+    margin-bottom: 10px;
+    list-style-image: url("/imagenes/usuario.png");
+    width: 20px;
+    height: 20px;
+    white-space: nowrap;
+}
+
+#listadoProfesionales li.link {
+    color: #555;
+    margin-top: 26px;
+    margin-bottom: 10px;
+    list-style-image: url("/imagenes/enlace.png");
+    width: 20px;
+    height: 20px;
+    white-space: nowrap;
+}
+
+#listadoProfesionales p{
+    color: #555;
+    font-size: 16px;
+    line-height: 2em;
+}
+
+/* estilo para contactos */
+
+#footer {
+    background-color: #078d95;
+    border-radius: 3px;
+    clear: both;
+    text-align: center;
+    padding: 17px 10px 10px 10px;
+    border: 1px solid #F1ECFF;
+    box-shadow: 0px 0px 5px #F1ECFF;
+}
+
+#footer a.contacto {
+    color: #f0f8ff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+#footer a.contacto:hover {
+    color: #1a1324;
+    text-decoration: underline;
+}

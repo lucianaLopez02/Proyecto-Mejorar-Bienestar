@@ -1,0 +1,182 @@
+<html>
+    <head>
+        <title>Pagina Principal</title>
+        <link rel="stylesheet" href="estilos/estiloDiagnostico1.css" />
+        <!--  estilo externo -->
+        <script src="funcionDeterminarDiagnosticos.js"></script> 
+
+
+
+    </head>
+    <body>
+        <div id="container">
+            <!-- titulo -->
+            <div id="cabecera">
+                <img class="logo" src="imagenes/hospital.png" alt="logo">
+                <a href="index.html">Mejorar<br>Bienestar</a> <!--  -->
+                <img class="sub" src="imagenes/linea.png">
+                <h3>Clinica de Salud Integral</h3>
+
+                <div id="derecha">
+                    
+                    <img src="imagenes/doctor.png" style="width: 65px; float: left; margin-right: 15px; margin-bottom: 24px; margin-top: 8px;"  alt="">
+                    <h4 class="primero">Consultas externas</h4>
+                    <p class="primero">Reservar cita</p><br>
+                    <img src="imagenes/llamada-telefonica.png" style="width: 65px; float: left; margin-right: 15px; "  alt="">
+                    <h4 class="segundo">Llamanos</h4>
+                    <p class="segundo">299 502 1230</p>
+                </div>
+                    
+            </div>
+
+            <!-- menu  -->
+            <div id="menu">
+                <ul id="menu_principal">
+                    <li><a href="buscarProfesionales.html">Buscar profesionales</a></li>
+                    <li><a href="diagnosticos.html">Diagn&oacute;sticos</a></li>
+                    <li><a href="tratamientos.html">Tratamientos</a></li>
+                    <li><a href="iniciarSesion.html">Iniciar Sesi&oacute;n</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <!-- fin menu -->
+
+            <div id="principal">
+                <div id="izquierda">
+                        <div id="informacion" style="display: none;"></div>
+                        <h3 class="titulo">
+                            Marque todas las afirmaciones que a continuacion que se le apliquen: 
+                        </h3>
+
+                        <form>
+                            <ol>
+                                <div class="pregunta">
+                                <li>¿Has experimentado o presenciado un evento traumático en tu vida?</li>
+                                <input type="radio" id="resp1_si" name="resp1" value="si">Si </br>
+                                <input type="radio" id="resp1_no" name="resp1" value="no">No </br>
+                                <input type="radio" id="resp1_nose" name="resp1" value="nose">No lo se </br>
+                                </div>
+                                <hr class="lineaP">
+
+                                <div class="pregunta">
+                                <li>
+                                    ¿Has experimentado recuerdos angustiantes, flashbacks o imágenes intrusivas relacionadas con el evento traumático?
+                                </li>
+                                    <input type="radio" id="resp2_si" name="resp2" value="si">Si<br>
+                                    <input type="radio" id="resp2_no" name="res2" value="no">No<br>
+                                    <input type="radio" id="resp2_nose" name="resp2" value="nose">No lo se<br>
+                                </div>
+                                <hr class="lineaP">
+
+                                <div class="pregunta">
+                                <li>
+                                    ¿Has tenido pesadillas recurrentes sobre el evento traumático?
+                                </li>
+
+                                    <input type="radio" id="resp3_si" name="resp3" value="si">Si<br>
+                                    <input type="radio" id="resp3_no" name="resp3" value="no">No<br>
+                                    <input type="radio" id="resp3_nose" name="resp3" value="nose">No lo se<br>
+                                </div>
+                                <hr class="lineaP">
+
+                                <div class="pregunta">
+                                <li>
+                                    ¿Has evitado activamente situaciones, lugares o personas que te recuerdan al evento traumático?
+                                </li>
+
+                                    <input type="radio" id="resp4_si" name="resp4" value="si">Si<br>
+                                    <input type="radio" id="resp4_no" name="resp4" value="no">No<br>
+                                    <input type="radio" id="resp4_nose" name="resp4" value="nose">No lo se<br>
+                                </div>
+                                <hr class="lineaP">
+
+                                <div class="pregunta">
+                                <li>
+                                    ¿Te sientes constantemente en estado de alerta o hipervigilante, incluso cuando no hay peligro inmediato?
+                                </li>
+                                    <input type="radio" id="resp5_si" name="resp5" value="si">Si<br>
+                                    <input type="radio" id="resp5_no" name="resp5" value="no">No<br>
+                                    <input type="radio" id="resp5_nose" name="resp5" value="nose">No lo se<br>
+                                </div>
+                                <hr class="lineaP">
+
+                                <div class="pregunta">
+                                    <li>
+                                        ¿Has experimentado cambios significativos en tu estado de ánimo, como sentirte constantemente irritable, enojado o deprimido? 
+                                    </li>
+                                        <input type="radio" id="resp6_si" name="resp6" value="si">Si<br>
+                                        <input type="radio" id="resp6_no" name="resp6" value="no">No<br>
+                                        <input type="radio" id="resp6_nose" name="resp6" value="nose">No lo se<br>
+                                    </div>
+                                    <hr class="lineaP">
+                                
+                                    <div class="pregunta">
+                                        <li>
+                                            ¿Has buscado ayuda profesional o tratamiento para lidiar con los síntomas relacionados con el TEPT?
+                                        </li>
+                                            <input type="radio" id="resp7_si" name="resp7" value="si">Si<br>
+                                            <input type="radio" id="resp7_no" name="resp7" value="no">No<br>
+                                            <input type="radio" id="resp7_nose" name="resp7" value="nose">No lo se<br>
+                                        </div>
+    
+
+
+                            </ol>
+                                <input class="seguir" type="button" value="Seguir" onclick="redirigir()">
+                            
+    
+                        </form>
+
+                        <!-- mostrar resultados -->
+                        <div id="flotante" style="display: none;">
+                            <img class="check" src="imagenes/check.png" alt="check">
+                            <h2>Datos Enviados correctamente!</h2>
+                            <p class="descripcionCheck">Segun sus opciones seleccionadas..<p id="resultado"></p><br> Le sugiero que vea los siguientes <a href="tratamientos.html">tratamientos..</a></p>
+                        </div>
+                    
+                        <!-- fin de la descripcion -->
+                   
+                </div>
+
+                <div id="listadoProfesionales">
+                    <a class="tituloPro" href="profesionales.html">Nuestros Profesionales</a>
+                    <hr class="otroTitulo">
+                    <ul>
+                        <li class="profesional">Dr. Juan Perez</li>
+                        <li class="profesional">Dr. Juan Perez</li>
+                        <li class="profesional">Dr. Juan Perez</li>
+                        <li class="profesional">Dr. Juan Perez</li>
+                    </ul>
+                    
+                    <h4>Nuestra ubicacion</h4>
+                    <hr class="otroTitulo">
+                    <p>Ministro Gonzalez 545<br>(8300) Neuquén Capital - Argentina<br>TELE/FAX<br>
+                    (54)299 4423254 / 4481180 <br>Click sobre el mapa! <br>
+                    </p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.2940501877856!2d-68.0622606894189!3d-38.962953171592154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x960a322df79c8403%3A0x5067d49940758156!2sAv.%20Coronel%20Olascoaga%20735%2C%20Q8300%20Neuqu%C3%A9n!5e0!3m2!1ses!2sar!4v1688252732390!5m2!1ses!2sar" width="200" height="131" style="border:3px solid #65d1b0; border-radius: 10px; box-shadow: 0px 0px 5px #F1ECFF;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+                    <h4>Horario de Atención</h4>
+                    <hr class="otroTitulo">
+                    <p>Horario a partir de <br>8:00 hs.a 20:00 hs. <br>
+                        </p>
+
+                    <h4>Link de interes</h4> 
+                    <hr class="otroTitulo">
+                    <ul> 
+                        <li class="link">Global Bridges</li>
+                        <li class="link">AAMR</li>
+                        <li class="link">AsAT</li>
+                        <li class="link">ALAT</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- fin de principal -->
+
+            <div id="footer">
+                <a class="contacto" href="contactos.html">cont&aacute;ctenos</a>
+            </div>
+            <!-- fin del footer -->
+        </div>
+        <!-- fin del contenedor -->
+    </body>
+</html>

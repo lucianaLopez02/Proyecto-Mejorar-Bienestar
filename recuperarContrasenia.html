@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Pagina Principal</title>
+        <link rel="stylesheet" href="estilos/estiloRecuperar.css" />
+        <!--  estilo externo -->
+        <script src="funcionIngresarSistema.js"></script>
+        
+    </head>
+    <body>
+        <div id="container">
+            <!-- titulo -->
+            <div id="cabecera">
+                <a href="#">Mejorar Bienestar</a>
+            </div>
+
+            <!-- menu  -->
+            <div id="menu">
+                <ul id="menu_principal">
+                    <li><a href="buscarProfesionales.html">Buscar profesionales</a></li>
+                    <li><a href="diagnosticos.html">Diagn&oacute;sticos</a></li>
+                    <li><a href="tratamientos.html">Tratamientos</a></li>
+                    <li><a href="iniciarSesion.html">Iniciar Sesi&oacute;n</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <!-- fin menu -->
+
+            <div id="principal">
+                <div id="izquierda">
+                    <div id="informacion" style="display:none" ></div><!-- style para mantener cerrada-->
+                    
+                        <h3 class="titulo">
+                            Recuperar Cuenta
+                        </h3>
+
+                        <!-- preguntas -->
+                        <form class="formContacto">
+                        <label>Ingrese su tipo documento:</label><br>
+                        <select name="" id="documento" onchange="validarTipoDocumento()">
+                            <option value="tipo">-Ingrese tipo-</option>
+                            <option value="dni">Dni</option>
+                            <option value="cuit">Cuit</option>
+                        </select>
+                        <br>
+
+                        <label>Numero de documento: </label><br>
+                        <input type="text" name="numeroDocumento" id="numeroDocumento"><br>
+
+                        <label>Correo: </label><br>
+                        <input type="text" name="email" id="email"><br>
+                        
+                        <a href="iniciarSesion.html">Ya me acorde mi contraseña</a><br>
+                        <input class="boton" type="button" value="Recuperar" onclick="recuperar()">
+                        
+                        
+                        </form>
+                    
+                        <!-- fin de la descripcion -->
+                </div>
+
+                <div id="listadoProfesionales">
+                    <a class="tituloPro" href="profesionales.html">Nuestros Profesionales</a>
+                    <ul>
+                        <li>Dr. Juan Perez</li>
+                        <li>Dr. Juan Perez</li>
+                        <li>Dr. Juan Perez</li>
+                        <li>Dr. Juan Perez</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- fin de principal -->
+
+            <div id="footer">
+                <a class="contacto" href="contactos.html">cont&aacute;ctenos</a>
+            </div>
+            <!-- fin del footer -->
+        </div>
+        <!-- fin del contenedor -->
+    </body>
+</html>

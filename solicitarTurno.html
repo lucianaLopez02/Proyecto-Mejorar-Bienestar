@@ -1,0 +1,349 @@
+<html>
+    <head>
+        <title>Pagina Principal</title>
+        <link rel="stylesheet" href="estilos/estiloSolicitarTurno.css" />
+        <!--  estilo externo -->
+        <script>
+
+            /**
+             * Validar que el nombre y el apellido sea de tipo texto
+             */
+            function validarNombreApe(nomApe){
+            var valido = false;
+
+            if (isNaN(nomApe)) {
+                var palabras = nomApe.trim().split(' ');
+                if (palabras.length === 2 && palabras[0].length >= 3) {
+                    valido = true;
+                }
+            }
+            return valido;
+            }
+
+            /**
+             * validar dni, comprueba que este entre 10000000 y 99999999
+             */
+             function validarDni(dni) {
+                var valido = false;
+                if (dni.length === 8 && !isNaN(dni) && dni >= 10000000 && dni <= 99999999) {
+                    valido = true;
+                }
+                return valido;
+            }
+
+            /**
+             * validar edad del paciente este entre 0 hasta 65 años y tambien verfica que sea un numero
+             */
+            function validarEdad(edad){
+                var edadValida = false;
+                var edadNum = parseInt(edad);
+
+                if ( (edadNum > 0 && edadNum <= 65) && !isNaN(edadNum) ) {
+                    var edadValida = true;
+                }
+
+                return edadValida;
+            }
+
+            /**
+                * Validar correo electronico con una expresion regular
+                */
+                function validarEmail(email) {
+                    var valido = false;
+                    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                    if (emailRegex.test(email)) {
+                    valido = true;
+                    }
+                
+                    return valido;
+                }
+
+                /**
+                * validar numero de telefono
+                */
+                function validarTelefono(telefono) {
+                    var valido = false;
+                
+                    /* Verificar que el teléfono empiece con "299", 
+                    * ademas de verificar que el teléfono tenga al menos 7 caracteres después de "299"
+                    */
+                    if (telefono.startsWith("299") && telefono.length >= 10) {
+
+                    // Verificar que todos los caracteres después de "299" sean dígitos numéricos
+                    var digits = telefono.slice(3); // Obtener los dígitos después de "299"
+                    for (var i = 0; i < digits.length; i++) {
+                    if (isNaN(Number(digits[i]))) {
+                        valido = false;
+                        break;
+                    }else{
+                        valido = true;
+                    }
+                    }
+
+                    }
+                
+                    return valido;
+                }
+
+            
+
+                    /**
+                     * Deterrmina si la fecha es valida
+                     */
+                        function verificarFecha() {
+                            var fechaTurnoInput = document.getElementById("fechaTurno");
+                            var fechaTurno = new Date(fechaTurnoInput.value);
+
+                            var fechaActual = new Date();
+
+                            if (fechaTurno < fechaActual) {
+                                fechaTurnoInput.value = obtenerFechaActualFormateada();
+                                return false; // La fecha no es válida
+                            }
+
+                            return true; // La fecha es válida
+                        }
+
+                        function obtenerFechaActualFormateada() {
+                        var fecha = new Date();
+
+                        var anio = fecha.getFullYear();
+                        var mes = ("0" + (fecha.getMonth() + 1)).slice(-2);
+                        var dia = ("0" + fecha.getDate()).slice(-2);
+
+                        return anio + "-" + mes + "-" + dia;
+                        }
+
+
+                    var profesionalesPorObra = {
+                    obra1: ["Dromaz Maria Belen", "Sofia"],
+                    obra2: ["Gonzalez Lucia", "Palas Cesar"],
+                    obra3: ["Cazon Daniela", "Martin"],
+                    obra4: ["Courtis Jose Maria", "Gabriel"],
+                    obra5: ["Pamela Dyer", "Viale Sergio"],
+                    obra6: ["Dieguez Analia", "Palas Cesar"],
+                    obra7: ["Lanzani Sabrina", "Mozzi Javier"],
+                    };
+
+                    function actualizarProfesionales() {
+                    var obrasSelect = document.getElementById("obras");
+                    var profesionalesSelect = document.getElementById("profesionales");
+                    var obraSeleccionada = obrasSelect.value;
+
+                    // Limpiar opciones anteriores
+                    profesionalesSelect.innerHTML = "";
+
+                    // Obtener los profesionales correspondientes a la obra seleccionada
+                    var profesionales = profesionalesPorObra[obraSeleccionada];
+
+                    // Agregar opciones al select de profesionales
+                    if (profesionales) {
+                        profesionales.forEach(function(profesional) {
+                        var option = document.createElement("option");
+                        option.text = profesional;
+                        profesionalesSelect.add(option);
+                        });
+                    }
+                }
+            
+
+
+            function enviarSolicitud(){
+                var informacion = document.getElementById("informacion");
+
+                var nombreApellido = document.getElementById("nomApe");
+                var esValidoNomApe = validarNombreApe(nombreApellido.value);
+
+
+                var dni = document.getElementById("dni");
+                var dniValido = validarDni(dni.value);
+
+
+                var edad = document.getElementById("edad");
+                var esValidoEdad = validarEdad(edad.value);
+
+                var email = document.getElementById("email");
+                var esValidoEmail = validarEmail(email.value);
+
+                var telefono = document.getElementById("telefono");
+                var esValidoTelefono = validarTelefono(telefono.value);
+
+                var fechaValida = verificarFecha();
+
+                var obras = document.getElementById("obras");
+                var profesionales = document.getElementById("profesionales");
+
+                var obraValida =  !(obras.value === "tipo");
+                var profesionalValido = !(profesionales.value == "tipoP");
+
+                var mensaje = document.getElementById("mensaje");
+                var mensajeValido =  !(mensaje.value == "");
+
+
+                var validacion = esValidoNomApe && dniValido && esValidoEdad && esValidoEmail && esValidoTelefono && fechaValida && obraValida && profesionalValido;
+
+                if (validacion) {
+                    informacion.style.display = "block"; // Mostrar el div "informacion"
+                    informacion.innerHTML = "¡Gracias por enviar su consulta! Le estaremos respondiendo pronto.";
+                } else {
+                    informacion.style.display = "block"; // Mostrar el div "informacion"
+                    informacion.innerHTML = "Por favor tenga en cuenta que:<br><ul><li>* Nombre y Apellido sean válidos (No se aceptan valores numéricos).</li>"+
+                                        "<li>* Correo Electrónico tiene que tener @ y dominio válido. </li> "+
+                                        "<li>* Teléfono solo recibe valores numéricos y debe empezar con 299.</li>"+
+                                        "<li>* Comentarios no debe empezar con números y no debe estar vacío.</li>"+
+                                        "<li>* Fecha de turno debe ser válida y posterior a la fecha actual.</li>"+
+                                        "</ul>";
+                }
+                }
+        </script>
+
+        <!-- nos redirije a otras paginas -->
+
+    </head>
+    <body>
+        <div id="container">
+            <!-- titulo -->
+            <div id="cabecera">
+                <img class="logo" src="imagenes/hospital.png" alt="logo">
+                <a href="#">Mejorar<br>Bienestar</a> <!--  -->
+                <img class="sub" src="imagenes/linea.png">
+                <h3>Clinica de Salud Integral</h3>
+
+                <div id="derecha">
+                    
+                    <img src="imagenes/doctor.png" style="width: 65px; float: left; margin-right: 15px; margin-bottom: 24px; margin-top: 8px;"  alt="">
+                    <h4 class="primero">Consultas externas</h4>
+                    <p class="primero">Reservar cita</p><br>
+                    <img src="imagenes/llamada-telefonica.png" style="width: 65px; float: left; margin-right: 15px; "  alt="">
+                    <h4 class="segundo">Llamanos</h4>
+                    <p class="segundo">299 502 1230</p>
+
+                    <a href="index.html">Salir</a>
+                </div>
+
+
+                    
+            </div>
+
+            <!-- menu  -->
+            <div id="menu">
+                <ul id="menu_principal">
+                    <li><a href="buscarProfesionales.html">Buscar profesionales</a></li>
+                    <li><a href="diagnosticos.html">Diagn&oacute;sticos</a></li>
+                    <li><a href="tratamientos.html">Tratamientos</a></li>
+                    <li><a href="iniciarSesion.html">Iniciar Sesi&oacute;n</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <!-- fin menu -->
+
+            <div id="principal">
+                <div id="izquierda">
+
+                        <div id="informacion" style="display:none;"></div><!-- style para mantener cerrada-->
+                    
+                        <h3 class="titulo">
+                            Solicitar turno online:
+                        </h3>
+
+                        <!-- preguntas -->
+                        <form class="formContacto">
+                        <label>Nombre y apellido: </label><br>
+                        <input type="text" name="nomApe" id="nomApe"><br>
+
+
+                        <label>DNI: </label><br>
+                        <input type="text" name="dni" id="dni"><br>
+
+                        <label>Edad: </label><br>
+                        <input type="text" name="edad" id="edad"><br>
+
+                        <label>Email: </label><br>
+                        <input type="text" name="email" id="email"><br>
+
+                        <label>Obra social:</label><br>
+                        <select id="obras"  onchange="actualizarProfesionales()">
+                            <option value="tipo">-Selecciona una obra social-</option>
+                            <option value="obra1">Inss</option>
+                            <option value="obra2">Osde</option>
+                            <option value="obra3">Galeno</option>
+                            <option value="obra4">Sancor salud</option>
+                            <option value="obra5">Crediguia</option>
+                            <option value="obra6">Medife</option>
+                            <option value="obra7">Swiss Medical</option>
+                        </select>
+                        <br>
+
+                        <label>Telefono: </label><br>
+                        <input type="text" name="telefono" id="telefono"><br>
+
+                        <label>Selecciona profesional:</label><br>
+                        <select id="profesionales">
+                            <option value="tipoP">-Selecciona un profesional-</option>
+                            <!-- <option value="profesional1">Viviana</option>
+                            <option value="profesional2">Sasha</option>
+                            <option value="profesional3">Juan</option>
+                            <option value="profesional4">Matias</option> -->
+                        </select>
+                        <br>
+
+                        <label>Fecha de turno: </label><br>
+                        <input type="date" id="fechaTurno" onchange="verificarFecha()"><br> <!--uso input date-->
+
+                        <label>Comentarios: </label><br>
+                        <textarea name="mensaje" id="mensaje" cols="25" rows="5"></textarea><br>
+
+                        <input class="boton" type="button" value="Enviar solicitud" onclick="enviarSolicitud()">
+                        <input class="boton" type="reset" value="Borrar">
+                        </form>
+
+
+                        
+                    
+                        <!-- fin de la descripcion -->
+                   
+                </div>
+
+                <div id="listadoProfesionales">
+                    <a class="tituloPro" href="profesionales.html">Nuestros Profesionales</a>
+                    <hr class="otroTitulo">
+                    <ul>
+                        <li class="profesional">Dr. Juan Perez</li>
+                        <li class="profesional">Dr. Juan Perez</li>
+                        <li class="profesional">Dr. Juan Perez</li>
+                        <li class="profesional">Dr. Juan Perez</li>
+                    </ul>
+                    
+                    <h4>Nuestra ubicacion</h4>
+                    <hr class="otroTitulo">
+                    <p>Ministro Gonzalez 545<br>(8300) Neuquén Capital - Argentina<br>TELE/FAX<br>
+                    (54)299 4423254 / 4481180 <br>Click sobre el mapa! <br>
+                    </p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.2940501877856!2d-68.0622606894189!3d-38.962953171592154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x960a322df79c8403%3A0x5067d49940758156!2sAv.%20Coronel%20Olascoaga%20735%2C%20Q8300%20Neuqu%C3%A9n!5e0!3m2!1ses!2sar!4v1688252732390!5m2!1ses!2sar" width="200" height="131" style="border:3px solid #65d1b0; border-radius: 10px; box-shadow: 0px 0px 5px #F1ECFF;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+                    <h4>Horario de Atención</h4>
+                    <hr class="otroTitulo">
+                    <p>Horario a partir de <br>8:00 hs.a 20:00 hs. <br>
+                        </p>
+
+                    <h4>Link de interes</h4> 
+                    <hr class="otroTitulo">
+                    <ul> 
+                        <li class="link">Global Bridges</li>
+                        <li class="link">AAMR</li>
+                        <li class="link">AsAT</li>
+                        <li class="link">ALAT</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- fin de principal -->
+
+            <div id="footer">
+                <a class="contacto" href="contactos.html">cont&aacute;ctenos</a>
+            </div>
+            <!-- fin del footer -->
+        </div>
+        <!-- fin del contenedor -->
+    </body>
+</html>
